@@ -2,6 +2,8 @@ function tr(str){
 	return str.replace(/&/g, '_AMP_').replace(/\?/g, '_QST_').replace(/#/g, '_HSH_');
 }
 
+var url = window.location.href;
+
 var fullname = document.getElementsByClassName("p-name vcard-fullname")[0].innerText; 
 
 var title = document.getElementsByClassName("user-profile-bio")[0].innerText.trim();
@@ -30,6 +32,6 @@ for(i=0; i<vcard.length; i++) {
 }
 var comment = prompt("add a note");
 
-var jsonp = '?name=' + tr(fullname) +'&title=' + tr(title) + '&empl=' + tr(employer) + '&local=' + tr(local) + '&links=' + tr(links) +'&comment=' + tr(comment);
-
-console.log(jsonp)
+var jsonp = '?name=' + tr(fullname) +'&email=' + tr(email) +'&title=' + tr(title) + '&empl=' + tr(employer) + '&local=' + tr(local) + '&links=' + tr(links) +'&comment=' + tr(comment) + '&url=' + tr(url);
+var yourScriptUrl = "https://script.google.com/macros/s/YOUR_SCRIPT_URL/exec";
+window.open(yourScriptUrl+jsonp);
